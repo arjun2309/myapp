@@ -1,0 +1,54 @@
+import { useEffect, useState } from "react";
+
+function UseEffect1(){
+        // let user = "React"
+        const [user,setUser] = useState('React')
+        const [data,setData] = useState('JavaScript')
+        const [data1,setData1] = useState('Hyper Text Markup Language')
+        const [data2,setData2] = useState('Cascading StyleSheet')
+        const [data3,setData3] = useState('Object Oriented Programming')
+         
+        useEffect(()=>{setTimeout(()=>{
+            alert("please update the data")
+         },2000)},[])
+
+         useEffect(()=>{setTimeout(()=>{
+            alert("Data is updated!!")
+         },4000)},[user,data,data1])//-empty dependency=> works only after rendar one time,
+                     //  [user]=>if the state is called inside dependency use effect rerendar only if that state is updated
+
+        const changeName = () =>{
+            // console.log("done");
+            setUser('JS')
+            // user = "Angular"
+        }
+        const changeName2 =() =>{
+            setData('js')
+        }
+        const changeName3 =() =>{
+            setData1('HTML')
+        }
+        const changeName4 =() =>{
+            setData2('CSS')
+        }
+        const changeName5 =() =>{
+            setData3('OOPs')
+        }
+        return(
+            <>
+            <h3>{user}</h3>
+            <button onClick = {changeName}>ChangeName</button>
+            <h3>{data}</h3>
+            <button onClick = {changeName2}>ChangeName</button>
+            <h3>{data1}</h3>
+            <button onClick = {changeName3}>ChangeName</button>
+            <h3>{data2}</h3>
+            <button onClick = {changeName4}>ChangeName</button>
+            <h3>{data3}</h3>
+            <button onClick = {changeName5}>ChangeName</button>
+            </>
+        )
+    }
+    
+    export default UseEffect1;
+    
